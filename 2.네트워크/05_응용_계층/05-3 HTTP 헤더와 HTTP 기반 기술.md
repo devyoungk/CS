@@ -4,10 +4,13 @@
 
 - HTTP 메세지의 두 번째 줄
 - 다양한 HTTP 헤더들이 명시된다.
+<br>
 
 ## HTTP 헤더
 
 - 필드 이름(헤더 이름)과 필드 값(헤더 값)이 콜론을 기준으로 구분되어 있다.
+
+<br>
 
 ## 요청시 활용되는 HTTP 헤더
 
@@ -22,7 +25,7 @@
 - 웹 브라우저와 같이 HTTP 요청을 시작하는 클라이언트 측의 프로그램을 의미
 - 요청 메시지 생성에 관여한 클라이언트 프로그램과 관련된 다양한 정보가 명시된다.
 
-![image.png](attachment:e9e95972-1ae3-4c73-9890-5c701505f543:image.png)
+<img width="765" height="165" alt="Image" src="https://github.com/user-attachments/assets/4853387e-7088-4c7c-86eb-ba8a8e9bdbf7" />
 
 ⇒ 서버 입장에서는 User-Agent 헤더를 통해 클라이언트의 접속 환경을 유추할 수 있다.
 
@@ -40,6 +43,8 @@
         - Ex) Type - Basic (가장 기본적인 HTTP 인증 타입)
         - username:password와 같이 아이디와 비밀번호를 콜론을 이용해 합친 뒤, 이를 Base64 인코딩한 값을 인증 정보로 삼는다.
 
+<br>
+
 ## 응답 시 활용되는 HTTP 헤더
 
 ### 1. Server
@@ -51,7 +56,7 @@
 - 클라이언트에게 허용된 HTTP 메서드 목록을 알려주기 위해 사용된다.
 - 405(Method Not Allowed)를 응답하는 메시지에 함께 사용된다.
 
-![image.png](attachment:b611d983-def2-40b0-a89a-f1b3e8732006:image.png)
+<img width="603" height="291" alt="Image" src="https://github.com/user-attachments/assets/319946e1-675c-4f61-9484-0e31636216de" />
 
 ### 3. Retry-After
 
@@ -59,7 +64,7 @@
 - 503 응답과 함께 사용될 수 있는 헤더이다.
 - 자원을 사용할 수 있는 날짜 혹은 시각을 나타낸다.
 
-![image.png](attachment:1df98cc2-37b4-4db1-9871-d701ed84c439:image.png)
+<img width="718" height="90" alt="Image" src="https://github.com/user-attachments/assets/a62797a8-25ba-40e7-b1ed-5d2bed361d5f" />
 
 ### 4. Location
 
@@ -73,11 +78,13 @@
 - 자원에 접근하기 위한 인증 방식을 설명하는 헤더이다.
 - 보안 영역을 함께 알려주거나 인증에 사용될 문자 집합도 알려줄 수 있다.
 
-![image.png](attachment:f224fcfd-e8c2-4274-acac-4e30e04b3d0c:image.png)
+<img width="721" height="67" alt="Image" src="https://github.com/user-attachments/assets/e448aecd-9d15-4f4a-b42b-7240319ffa86" />
+
+<br>
 
 ### 인증되지 않은 클라이언트가 HTTP 인증을 수행하는 과정
 
-![image.png](attachment:2a7f4eba-d859-4dd5-8699-2f124a019c81:image.png)
+<img width="716" height="340" alt="Image" src="https://github.com/user-attachments/assets/37d93185-aa65-4fa7-a114-62e09ada08db" />
 
 1. 인증되지 않은 클라이언트가 서버에 GET 요청
 2. 서버는 클라이언트에게 상태코드 401과 함께 WWW-Authenticate 헤더를 통해 인증 방식을 알림
@@ -85,6 +92,8 @@
 4. 사용자 아이디:비밀번호를 인코딩한 값을 인증 정보로 삼은 Authorization 헤더를 통해 다시 GET 요청
 5. 서버는 인증 정보를 확인
 6. 인증이 유효하면 상태코드 200, 인증되지 않았으면 상태코드 401
+
+<br>
 
 ## 요청과 응답 모두에서 활용되는 HTTP 헤더
 
@@ -123,6 +132,8 @@
     - 메시지 본문을 압축하거나 변환한 방식이 명시된다.
     - Ex) gzip, compress …
 
+<br>
+
 ## HTTP 기반 기술
 
 ## 캐시
@@ -134,24 +145,28 @@
 - 웹 브라우저에 저장된 캐시 → 개인 전용 캐시
 - 클라이언트와 서버 사이에 위치한 중간 서버에 저장된 캐시 → 공용 캐시
 
+<br>
+
 ### 캐시 신선도
 
 - 사본 데이터가 얼마나 최신 원본 데이터와 유사한지를 나타낸 것
 - 캐시된 데이터에 유효기간을 설정하는 방법으로 신선도를 유지한다.
 - 캐시된 자원이 여전히 최신 정보라면 클라이언트는 굳이 서버로부터 같은 자원을 응답받을 필요가 없다 → 캐시 신선도 재검사
 
+<br>
+
 ### 캐시 신선도 재검사 방법
 
 - 날짜를 기반으로 재검사
     - 클라이언트는 If-Modified-Since헤더를 통해 서버에게 특정 시점 이후로 원본 데이터에 변경이 있었는지 물어볼 수 있다.
     
-    ![image.png](attachment:84ae4879-3817-4dbe-acf8-3f52e05158db:image.png)
+<img width="599" height="99" alt="Image" src="https://github.com/user-attachments/assets/2e30a7fe-6c21-43a3-b422-6f0bc6e06c86" />
     
     - 요청 받은 자원이 변경되었다면 → 새로운 자원 반환(200)
     - 변경되지 않았다면 → 자원이 변경되지 않았음을 알림(304)
     - 요청 받은 자원이 삭제되었다면 → 존재하지 않음을 알림(404)
     
-    ![image.png](attachment:812e9f3c-8a20-4f3a-b60a-e9518dfc9e0b:image.png)
+<img width="544" height="385" alt="Image" src="https://github.com/user-attachments/assets/aa7bb920-17db-4808-af12-2cca980227a5" />
     
 
 - 엔티티 태그(Etag)를 기반으로 재검사
@@ -165,6 +180,8 @@
     - 변경되지 않았다면 → 304
     - 삭제되었다면 → 404
 
+<br>
+
 ## 쿠키
 
 - 서버에서 생서되어 클라이언트 측에 저장되는 데이터
@@ -176,14 +193,16 @@
 
 - 응답 메시지의 Set-Cookie 헤더와 요청 메시지의 Cookie 헤더를 통해 전달된다.
 
-![image.png](attachment:f050327b-fcd0-4199-8dd8-788f23a06e92:image.png)
+<img width="601" height="100" alt="Image" src="https://github.com/user-attachments/assets/85a7dc3c-f9c4-48b4-a0b2-a3aaf9ae4436" />
 
-![image.png](attachment:11d28fbe-6eee-4b48-9afb-460e1d7356c8:image.png)
+<img width="604" height="58" alt="Image" src="https://github.com/user-attachments/assets/d1c2c553-470b-43a0-b543-f58de473e53b" />
 
 - domain : 도메인을 구분하기 위해
 - path : 같은 도메인이고 경로별로 쿠키를 구분하여 사용하고 싶을 때
 - Expires/Max-Age : 쿠키의 유효 기간
 - 보안 측면에서 한계가 있다.
+
+<br>
 
 ## 콘텐츠 협상과 표현
 
@@ -210,4 +229,4 @@
     - 범위 : 0~1
     - 값이 클수록 우선 순위가 높다.
 
-![image.png](attachment:630f7092-cdb5-47e6-b1a7-1c51f89051a2:image.png)
+<img width="597" height="113" alt="Image" src="https://github.com/user-attachments/assets/aaa8e7aa-f74f-4498-b1ed-185e276b109e" />
